@@ -26,7 +26,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ── Config ────────────────────────────────────────────────────────────────────
-ALERT_CHANNEL_ID = 0        # <-- paste your #trade-alerts channel ID here
+ALERT_CHANNEL_ID = 1509676014127546519        # <-- paste your #trade-alerts channel ID here
 TRADES_FILE = "trades.json" # local file to track open positions
 # ──────────────────────────────────────────────────────────────────────────────
 
