@@ -366,3 +366,10 @@ async def on_ready():
     print(f"✅ Logged in as {bot.user} — slash commands synced")
 
 bot.run(os.getenv("DISCORD_TOKEN"))
+
+# ── Sync ───────────────────────────────────────────────────────────────────
+
+@bot.tree.command(name="sync", description="Force sync slash commands")
+async def sync(interaction: discord.Interaction):
+    await bot.tree.sync()
+    await interaction.response.send_message("✅ Synced!", ephemeral=True)
