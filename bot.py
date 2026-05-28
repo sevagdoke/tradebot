@@ -369,7 +369,7 @@ bot.run(os.getenv("DISCORD_TOKEN"))
 
 # ── Sync ───────────────────────────────────────────────────────────────────
 
-@bot.tree.command(name="sync", description="Force sync slash commands")
+@bot.tree.command(name="sync", description="Force sync")
 async def sync(interaction: discord.Interaction):
-    await bot.tree.sync()
-    await interaction.response.send_message("✅ Synced!", ephemeral=True)
+    synced = await bot.tree.sync()
+    await interaction.response.send_message(f"✅ Synced {len(synced)} commands.", ephemeral=True)
