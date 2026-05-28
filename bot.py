@@ -362,14 +362,8 @@ async def clear(interaction: discord.Interaction):
 
 @bot.event
 async def on_ready():
-    await bot.tree.sync()
-    print(f"✅ Logged in as {bot.user} — slash commands synced")
+    synced = await bot.tree.sync()
+    names  = [c.name for c in synced]
+    print(f"✅ Logged in as {bot.user} — synced {len(synced)} commands: {names}")
 
 bot.run(os.getenv("DISCORD_TOKEN"))
-
-# ── Sync ───────────────────────────────────────────────────────────────────
-
-@bot.tree.command(name="sync", description="Force sync")
-async def sync(interaction: discord.Interaction):
-    synced = await bot.tree.sync()
-    await interaction.response.send_message(f"✅ Synced {len(synced)} commands.", ephemeral=True)
